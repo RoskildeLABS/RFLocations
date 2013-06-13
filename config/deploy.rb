@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-load 'deploy/assets'
 
 # SERVER
 set :application, "rf-locations.brnbw.com"
@@ -62,5 +61,6 @@ def config_files
 end
 
 after 'deploy:setup', 'deploy:setup_shared'
+after 'bundle:install', 'deploy:symlink_extras'
 after 'deploy:create_symlink', 'deploy:cleanup'
 

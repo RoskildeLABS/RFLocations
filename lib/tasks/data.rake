@@ -8,7 +8,7 @@ namespace :data do
     [Category, Location].map &:delete_all
 
     # Import new
-    data = CSV.read(Rails.root + "../Map2013-1.3.csv")
+    data = CSV.read(Rails.root + "public/Map2013-1.3.csv")
     data.shift # Throw away headers
     data.each do |row|
       category = Category.find_or_create_by_title(row[1])
