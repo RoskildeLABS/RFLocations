@@ -62,6 +62,5 @@ def config_files
 end
 
 after 'deploy:setup', 'deploy:setup_shared'
-before 'deploy:assets:precompile', 'deploy:symlink_extras'
 after 'deploy:create_symlink', 'deploy:cleanup'
 
