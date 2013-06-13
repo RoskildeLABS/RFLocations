@@ -1,12 +1,15 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+# require 'rails/all'
+require "active_record/railtie"
+require "action_controller/railtie"
+require "rails/test_unit/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # Bundler.require(*Rails.groups(:assets => %w(development test)))
   # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
+  Bundler.require(:default, Rails.env)
 end
 
 module RfLocations
@@ -27,7 +30,7 @@ module RfLocations
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Copenhagen'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -38,11 +41,12 @@ module RfLocations
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-# Customize generators
-config.generators do |g|
-  g.javascripts false
-  g.stylesheets false
-end
+    
+    # Customize generators
+    config.generators do |g|
+      g.javascripts false
+      g.stylesheets false
+    end
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
@@ -59,9 +63,9 @@ end
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
+    config.assets.enabled = false
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    # config.assets.version = '1.0'
   end
 end

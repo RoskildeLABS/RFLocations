@@ -12,7 +12,8 @@ class LocationsController < ApplicationController
   private
 
   def begin_of_chain
-    params[:category_id] ? Category.find_by_id(params[:category_id]).locations : Location
+    arel = params[:category_id] ? Category.find_by_id(params[:category_id]).locations : Location
+    arel.includes(:category)
   end
 
   def collection
