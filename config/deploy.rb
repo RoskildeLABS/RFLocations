@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 # SERVER
-set :application, "rf-locations.brnbw.com"
+set :application, "locations.roskildelabs.com"
 set :domain,      "#{application}"
 set :user,        "mikker"
 set :use_sudo,    false
@@ -14,7 +14,7 @@ role :db,                 domain, :primary => true
 
 # GIT
 set :scm, :git
-set :repository, "git@github.com:mikker/RFLocations.git"
+set :repository, "git@github.com:roskildelabs/RFLocations.git"
 set :branch, 'master'
 set :deploy_via, :remote_cache
 set :keep_releases, 3
