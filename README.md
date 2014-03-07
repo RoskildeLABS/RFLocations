@@ -1,5 +1,7 @@
 # RFLocations
 
+**NB: Uses data from 2013!** So you know maybe don't trust all the things. The stages are pretty safe though.
+
 A RESTful geolocation data source for Roskilde Festival
 
 ### Endpoints:
